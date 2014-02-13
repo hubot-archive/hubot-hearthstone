@@ -22,10 +22,6 @@ module.exports = (robot) ->
       data = JSON.parse(body)
       card = robot.getByName(data, msg.match[1])
       robot.sendCard(card, msg)
-      #if found.length > 0
-        #msg.send "#{found[0].name} - Mana: #{found[0].mana} - Race: #{found[0].race} - Type: #{found[0].type} - Attack/Health: #{found[0].attack}/#{found[0].health} - Descr: #{found[0].descr}"
-      #else
-        #msg.send "I can't find that card"
 
   robot.sendCard = (card, msg) ->
     if card.length > 0
