@@ -18,18 +18,17 @@ module.exports = (robot) ->
     json.filter (card) ->
       card.name.toLowerCase() is name.toLowerCase()
 
-  robot.hear /^@more (.+)/, (msg) ->
-    robot.fetchCard msg, (card) ->
-      robot.sendCard(card, msg, true)
+  robot.hear /^@(more )*(.+)/, (msg) ->
+    more = msg.match[1]
+    name = msg.match[2]
+    additional = more != undefined
+    robot.fetchCard msg, name, (card) ->
+      robot.sendCard(card, msg, additional)
 
-  robot.hear /^@(.+)/, (msg) ->
-    robot.fetchCard msg, (card) ->
-      robot.sendCard(card, msg, false)
-
-  robot.fetchCard = (msg, callback) ->
+  robot.fetchCard = (msg, name, callback) ->
     msg.http('http://hearthstonecards.herokuapp.com/hearthstone.json').get() (err, res, body) ->
       data = JSON.parse(body)
-      card = robot.getByName(data, msg.match[1])
+      card = robot.getByName(data, name)
       callback(card)
 
   robot.sendCard = (card, msg, additional) ->
