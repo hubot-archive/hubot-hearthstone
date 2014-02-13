@@ -6,6 +6,7 @@
 #
 # Commands:
 #   @<Hearthstone card> - Return <Hearthstone card>'s stats: name - mana - race - type - attack/hlth - descr
+#   @more <Hearthstone card> - Return more of the <Hearthstone card>'s stats
 #
 # Author:
 #   sylturner
