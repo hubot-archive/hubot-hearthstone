@@ -1,7 +1,7 @@
 {
   "name": "hubot-hearthstone",
   "description": "Look up Hearthstone cards through Hubot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Syl Turner <syl@sylturner.com>",
   "license": "MIT",
 
