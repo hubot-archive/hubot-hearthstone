@@ -47,13 +47,20 @@ describe 'hearthstone', ->
       expect(@robot.getByName(@json, "not a real card").length).to.equal(0)
 
   describe "hear", ->
+    it "should hear starting with the @more key", ->
+      expect(@robot.hear).to.have.been.calledWith(/^@more some card/)
     it "should hear starting with the @ symbol", ->
       expect(@robot.hear).to.have.been.calledWith(/^@some card/)
 
   describe "sendCard", ->
     it "should send a message with the found card's stats", ->
-      @robot.sendCard([@json[0]], @msg)
+      @robot.sendCard([@json[0]], @msg, false)
       expect(@msg.send).to.have.been.calledWith("#{@json[0].name} - Mana: #{@json[0].mana} - Race: #{@json[0].race} - Type: #{@json[0].type} - Attack/Health: #{@json[0].attack}/#{@json[0].health} - Descr: #{@json[0].descr}")
+    it "should given additional info when asked", ->
+      @robot.sendCard([@json[0]], @msg, true)
+      expect(@msg.send).to.have.been.calledWith("#{@json[0].name} - Mana: #{@json[0].mana} - Race: #{@json[0].race} - Type: #{@json[0].type} - Attack/Health: #{@json[0].attack}/#{@json[0].health} - Descr: #{@json[0].descr}")
+      expect(@msg.send).to.have.been.calledWith("Flavor: #{@json[0].flavorText} Rarity: #{@json[0].rarity}")
+      expect(@msg.send).to.have.been.calledWith("http://hearthstonecards.herokuapp.com/cards/medium/#{@json[0].image}.png")
     it "should send a friendly message when it can't find a card", ->
       @robot.sendCard([], @msg)
       expect(@msg.send).to.have.been.calledWith("I can't find that card")
