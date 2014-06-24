@@ -1,37 +1,30 @@
 {
   "name": "hubot-hearthstone",
   "description": "Look up Hearthstone cards through Hubot",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Syl Turner <syl@sylturner.com>",
   "license": "MIT",
-
   "keywords": [
     "hubot",
     "hubot-scripts"
   ],
-
   "repository": {
     "type": "git",
     "url": "git://github.com/hubot-scripts/hubot-hearthstone.git"
   },
-
   "bugs": {
     "url": "https://github.com/hubot-scripts/hubot-hearthstone/issues"
   },
-
   "dependencies": {
     "coffee-script": "~1.6"
   },
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
     "sinon-chai": "*",
     "sinon": "*"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "script/test"
   }
