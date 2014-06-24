@@ -1,7 +1,7 @@
 {
   "name": "hubot-hearthstone",
   "description": "Look up Hearthstone cards through Hubot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Syl Turner <syl@sylturner.com>",
   "license": "MIT",
 
@@ -12,11 +12,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/sylturner/hubot-hearthstone.git"
+    "url": "git://github.com/hubot-scripts/hubot-hearthstone.git"
   },
 
   "bugs": {
-    "url": "https://github.com/sylturner/hubot-hearthstone/issues"
+    "url": "https://github.com/hubot-scripts/hubot-hearthstone/issues"
   },
 
   "dependencies": {
